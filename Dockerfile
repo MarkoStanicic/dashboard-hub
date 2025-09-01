@@ -20,6 +20,12 @@ COPY . .
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
 
+# Set dummy environment variables for build process
+ENV NEXT_PUBLIC_SUPABASE_URL "https://placeholder.supabase.co"
+ENV NEXT_PUBLIC_SUPABASE_PUBLISHABLE_OR_ANON_KEY "placeholder-key"
+ENV SUPABASE_SERVICE_ROLE_KEY "placeholder-service-key"
+ENV BUILD_TIME "true"
+
 # Build the application
 RUN npm run build
 
