@@ -1,0 +1,65 @@
+{
+  "userIds": {
+    "john": "6262c8b9-a6d0-4b75-9157-65c3a8175b54",
+    "jane": "2965912d-a139-4fcc-bf22-06100ae9aa5f",
+    "bob": "26eea5d1-28bc-42f8-b083-e635d179d9e9",
+    "alice": "b7888868-0a1d-434b-bcf7-833fda592142",
+    "charlie": "27cf52b6-5690-440c-b225-a5e3cc9486ea",
+    "diana": "b9f2db65-ff4b-4bc4-9e13-c23fb588534c",
+    "frank": "ff9cc3b2-9d49-4033-b9f2-30594ff94367"
+  },
+  "companyIds": {
+    "acme": "1e81534a-e22b-433f-ab0e-d8ed51a71c3d",
+    "techcorp": "85b0ce22-5bd1-487e-a6d0-da68e96f8455",
+    "datalab": "a97060e8-6dc1-4e71-a738-a8db11b31ca3"
+  },
+  "roleIds": {
+    "admin": 1,
+    "editor": 2,
+    "viewer": 3
+  },
+  "testUsers": [
+    {
+      "id": "6262c8b9-a6d0-4b75-9157-65c3a8175b54",
+      "email": "john.doe@acme.com",
+      "role": "admin",
+      "company": "Acme Corporation"
+    },
+    {
+      "id": "2965912d-a139-4fcc-bf22-06100ae9aa5f",
+      "email": "jane.smith@acme.com",
+      "role": "editor",
+      "company": "Acme Corporation"
+    },
+    {
+      "id": "26eea5d1-28bc-42f8-b083-e635d179d9e9",
+      "email": "bob.wilson@acme.com",
+      "role": "viewer",
+      "company": "Acme Corporation"
+    },
+    {
+      "id": "b7888868-0a1d-434b-bcf7-833fda592142",
+      "email": "alice.brown@techcorp.io",
+      "role": "admin",
+      "company": "TechCorp Solutions"
+    },
+    {
+      "id": "27cf52b6-5690-440c-b225-a5e3cc9486ea",
+      "email": "charlie.davis@techcorp.io",
+      "role": "editor",
+      "company": "TechCorp Solutions"
+    },
+    {
+      "id": "b9f2db65-ff4b-4bc4-9e13-c23fb588534c",
+      "email": "diana.taylor@datalab.co",
+      "role": "admin",
+      "company": "DataLab Analytics"
+    },
+    {
+      "id": "ff9cc3b2-9d49-4033-b9f2-30594ff94367",
+      "email": "frank.miller@datalab.co",
+      "role": "viewer",
+      "company": "DataLab Analytics"
+    }
+  ]
+}

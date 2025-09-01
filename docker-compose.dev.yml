@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  dashboard-hub-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder  # Stop at builder stage for development
+    container_name: dashboard-hub-dev
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+    env_file:
+      - .env.local
+    volumes:
+      # Mount source code for hot reloading (if needed)
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    networks:
+      - dashboard-dev-network
+    command: npm run dev
+
+networks:
+  dashboard-dev-network:
+    driver: bridge

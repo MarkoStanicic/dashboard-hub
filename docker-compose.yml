@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  dashboard-hub:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dashboard-hub-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+      # Supabase Configuration
+      - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
+      - NEXT_PUBLIC_SUPABASE_PUBLISHABLE_OR_ANON_KEY=${NEXT_PUBLIC_SUPABASE_PUBLISHABLE_OR_ANON_KEY}
+      - SUPABASE_SERVICE_ROLE_KEY=${SUPABASE_SERVICE_ROLE_KEY}
+      # Production Environment
+      - BYPASS_AUTH_FOR_TESTING=false
+    volumes:
+      # Optional: Mount logs directory
+      - ./logs:/app/logs
+    networks:
+      - dashboard-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Optional: Nginx reverse proxy (if needed)
+  nginx:
+    image: nginx:alpine
+    container_name: dashboard-hub-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - dashboard-hub
+    networks:
+      - dashboard-network
+
+networks:
+  dashboard-network:
+    driver: bridge
+
+volumes:
+  dashboard-logs:
