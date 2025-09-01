@@ -9,6 +9,9 @@ import dashboardAPI, { type Dashboard } from "@/lib/api/dashboard-api";
 import { DashboardSearch } from "@/components/dashboard-search";
 import integrationAPI from "@/lib/api/integration-api";
 
+// Force dynamic rendering - don't pre-render during build
+export const dynamic = 'force-dynamic';
+
 interface Section {
   id: string;
   name: string;

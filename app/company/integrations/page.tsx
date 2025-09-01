@@ -10,6 +10,9 @@ import { IntegrationConnectionDialog } from "@/components/integration-connection
 import { IntegrationSyncDialog } from "@/components/integration-sync-dialog";
 import { DeleteIntegrationDialog } from "@/components/delete-integration-dialog";
 
+// Force dynamic rendering - don't pre-render during build
+export const dynamic = 'force-dynamic';
+
 export default async function IntegrationsPage() {
   const supabase = await createClient();
 

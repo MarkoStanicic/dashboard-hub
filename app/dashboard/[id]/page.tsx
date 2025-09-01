@@ -8,6 +8,9 @@ import DashboardEmbed from "@/components/dashboard-embed";
 import InsightPanel from "@/components/insight-panel";
 import dashboardAPI from "@/lib/api/dashboard-api";
 
+// Force dynamic rendering - don't pre-render during build
+export const dynamic = 'force-dynamic';
+
 interface PageProps {
   params: { id: string };
 }

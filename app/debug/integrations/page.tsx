@@ -1,6 +1,9 @@
 import { createClient } from "@/lib/supabase/server";
 import { integrationAPI } from "@/lib/api/integration-api";
 
+// Force dynamic rendering - don't pre-render during build
+export const dynamic = 'force-dynamic';
+
 export default async function IntegrationsDebugPage() {
   const debugInfo: any = {};
   
